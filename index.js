@@ -1,4 +1,4 @@
-require('dotenv').config({ path: './datos.env' });
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
@@ -15,7 +15,8 @@ app.use(cors());
 app.use('/api/auth', authRoutes);
 
 // Rutas de productos protegidas por middleware de autenticación y administrador
-app.use('/api/productos', verifyToken, adminOnly, productosRoutes);
+// app.use('/api/productos', verifyToken, adminOnly, productosRoutes);
+app.use('/api/productos',productosRoutes);
 
 
 const PORT = process.env.PORT || 3000;

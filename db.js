@@ -2,6 +2,8 @@ require('dotenv').config({ path: './datos.env' });
 
 const { Pool } = require('pg');
 
+
+
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -10,4 +12,5 @@ const pool = new Pool({
   port: process.env.DB_PORT, 
 });
 
+console.log(pool);
 module.exports = pool;

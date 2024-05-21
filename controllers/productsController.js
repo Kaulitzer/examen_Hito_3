@@ -2,9 +2,11 @@ const pool = require('../db');
 
 const getProducts = async (req, res) => {
   try {
+    console.log(process.env.DB_PASSWORD)
     const { rows } = await pool.query('SELECT * FROM productos');
     res.status(200).json(rows);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Error del servidor' });
   }
 };
